@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>297399737228-v69a6ltsld974ct6aceparct13dncr7b.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.297399737228-v69a6ltsld974ct6aceparct13dncr7b</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCHZ2THW3i5geDj_O_LOuQMLXAbJfCuJN0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>297399737228</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.win.FirebaseChat</string>
+	<key>PROJECT_ID</key>
+	<string>wchat-eaba7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>wchat-eaba7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:297399737228:ios:27530c880e3e28e1</string>
+	<key>DATABASE_URL</key>
+	<string>https://wchat-eaba7.firebaseio.com</string>
+</dict>
+</plist>
