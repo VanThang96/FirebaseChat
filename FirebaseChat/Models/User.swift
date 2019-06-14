@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct User {
+struct User : Equatable {
     var uid : String?
     var userName : String?
     var emailAddress : String?

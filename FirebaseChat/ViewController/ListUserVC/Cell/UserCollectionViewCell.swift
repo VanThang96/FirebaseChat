@@ -43,7 +43,7 @@ class UserCollectionViewCell: UICollectionViewCell {
         imvAvatar.backgroundColor = .gray
         imvAvatar.clipsToBounds = true
         
-        indicator.center = CGPoint(x: imvAvatar.center.x, y: imvAvatar.center.y - 30)
+        indicator.center = CGPoint(x: imvAvatar.center.x, y: imvAvatar.center.y - 35)
         indicator.startAnimating()
         addSubview(indicator)
     }

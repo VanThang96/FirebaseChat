@@ -9,7 +9,6 @@
 import UIKit
 
 class ListUserViewController: UIViewController {
-
     @IBOutlet weak var collectionViewListUser: UICollectionView!
     
     var userViewModel = UserViewModel()
@@ -57,7 +56,9 @@ extension ListUserViewController : UICollectionViewDelegate , UICollectionViewDe
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         dismiss(animated: true) {
-            self.homeViewController?.showChatViewController(with: self.userViewModel.getUser(at: indexPath.item))
+            if let userData = UserDefaults.standard.data(forKey: "userInfo"), let user = try? PropertyListDecoder().decode(User.self, from: userData){
+                self.homeViewController?.showChatViewController(fromUID: user.uid! , with: self.userViewModel.getUser(at: indexPath.item))
+            }
         }
     }
 }

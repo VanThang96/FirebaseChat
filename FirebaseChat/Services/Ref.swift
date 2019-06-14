@@ -11,6 +11,8 @@ import Firebase
 
 let REF_USER = "users"
 let REF_MESSAGE = "messages"
+let REF_USERMESSAGE = "user_message"
+let REF_LATESTMESSAGE = "latest_message"
 let URL_STORAGE = "gs://wchat-eaba7.appspot.com/"
 let STORAGE_PROFILE = "profile"
 
@@ -21,14 +23,20 @@ protocol Reference : class{
     var databaseMessage : DatabaseReference { get }
     func databaseSpecificMessage (uid :String) -> DatabaseReference
     
+    var databaseUserMessage : DatabaseReference { get }
+    func databaseSpecificUserMessage (fromUID: String , toUID : String) -> DatabaseReference
+    func databaseSpecificLatestMessage (fromUID: String , toUID : String) -> DatabaseReference
+    
     var storageProfile : StorageReference { get }
     func storageSpecificProfile (uid : String) -> StorageReference
 }
 class Ref : Reference {
+   
     static let sharedInstance = Ref()
     
     let databaseRoot = Database.database().reference()
     
+    // user
     var databaseUser: DatabaseReference {
         return databaseRoot.child(REF_USER)
     }
@@ -36,11 +44,28 @@ class Ref : Reference {
         return databaseUser.child(uid)
     }
     
+    // message
     var databaseMessage: DatabaseReference {
         return databaseRoot.child(REF_MESSAGE)
     }
     func databaseSpecificMessage(uid: String) -> DatabaseReference {
         return databaseUser.child(uid)
+    }
+    
+    // user_message
+    var databaseUserMessage: DatabaseReference {
+        return databaseRoot.child(REF_USERMESSAGE)
+    }
+    func databaseSpecificUserMessage(fromUID: String , toUID : String) -> DatabaseReference {
+        return databaseRoot.child("\(REF_USERMESSAGE)/\(fromUID)/\(toUID)")
+    }
+    
+    // latest_message
+    func databaseSpecificLatestMessage(fromUID: String, toUID: String) -> DatabaseReference {
+        return databaseRoot.child("\(REF_LATESTMESSAGE)/\(fromUID)/\(toUID)")
+    }
+    func fetchLatestMessage(withUID : String) -> DatabaseReference {
+        return databaseRoot.child("\(REF_LATESTMESSAGE)/\(withUID)")
     }
     
     //storage Reference

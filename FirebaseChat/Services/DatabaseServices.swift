@@ -116,8 +116,9 @@ class DatabaseServices {
             }
         }
     }
-    func fetchMessage(onSucess : @escaping (_ message : Message) -> (), onError : @escaping (_ errorMessage : String) -> ()){
-        Ref.sharedInstance.databaseMessage.observe(.childAdded) { (dataSnapshot) in
+    
+    func fetchMessage(fromUID : String, toUID: String, onSucess : @escaping (_ message : Message) -> (), onError : @escaping (_ errorMessage : String) -> ()){
+        Ref.sharedInstance.databaseSpecificUserMessage(fromUID: fromUID , toUID : toUID).observe(.childAdded) { (dataSnapshot) in
             guard let value = dataSnapshot.value as? [String : AnyObject] else {
                 print("Error_Firebase_Message : can't downcast dataSnapshot to Dictionanry ")
                 return
@@ -130,28 +131,72 @@ class DatabaseServices {
                 onError(error.localizedDescription)
             }
         }
+        
     }
-    /*func resetPassword(onSuccess : @escaping ()->(),onError : @escaping (_ errorMessage: String) -> ()){
-     Auth.auth().sendPasswordReset(withEmail: user.emailAddress) { (error) in
-     if error != nil{
-     onError(error!.localizedDescription)
-     }
-     onSuccess()
-     }
-     }*/
-    func sendMessageToFirebase(text : String, fromUID : String, toUID: String,timeStamp: Int, onSuccess : @escaping () -> (), onError : @escaping (_ errorMessage : String) -> ()){
+    func sendMessageToFirebaseUserMessage(text : String, fromUID : String, toUID: String,timeStamp: Int, onSuccess : @escaping () -> (), onError : @escaping (_ errorMessage : String) -> ()){
         let message = [
             "fromUID" : fromUID,
             "toUID" : toUID,
             "message" : text,
             "timeStamp": timeStamp
             ] as [String : Any]
-        Ref.sharedInstance.databaseMessage.childByAutoId().updateChildValues(message) { (error, dataRef) in
+        Ref.sharedInstance.databaseSpecificUserMessage(fromUID: fromUID, toUID: toUID).childByAutoId().updateChildValues(message) { (error, dataRef) in
             if error != nil {
                 onError((error?.localizedDescription)!)
                 return
             }
-            onSuccess()
+            Ref.sharedInstance.databaseSpecificUserMessage(fromUID: toUID, toUID: fromUID).childByAutoId().setValue(message, withCompletionBlock: { (error, dataRef) in
+                if error != nil {
+                    onError((error?.localizedDescription)!)
+                    return
+                }
+                Ref.sharedInstance.databaseSpecificLatestMessage(fromUID: fromUID, toUID: toUID).setValue(message, withCompletionBlock: { (error, dataRef) in
+                    if error != nil {
+                        onError((error?.localizedDescription)!)
+                        return
+                    }
+                    Ref.sharedInstance.databaseSpecificLatestMessage(fromUID: toUID, toUID: fromUID).setValue(message, withCompletionBlock: { (error, dataRef) in
+                        if error != nil {
+                            onError((error?.localizedDescription)!)
+                            return
+                        }
+                        onSuccess()
+                    })
+                })
+            })
+        }
+    }
+    
+    func fetchLatestMessageWhenCreate(uid : String, onSuccess: @escaping (_ message : Message) -> (), onError : @escaping (_ messageError : String) -> ()){
+        Ref.sharedInstance.fetchLatestMessage(withUID: uid).observe(.childAdded) { (dataSnapshot) in
+            guard let value = dataSnapshot.value as? [String : AnyObject] else {
+                print("Error_Firebase_Latest_Message : can't downcast dataSnapshot to Dictionanry ")
+                return
+            }
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                let message = try JSONDecoder().decode(Message.self, from: jsonData)
+                print(message)
+                onSuccess(message)
+            }catch let error{
+                onError(error.localizedDescription)
+            }
+        }
+    }
+    
+    func fetchLatestMessageWhenChange(uid : String, onSuccess: @escaping (_ message : Message) -> (), onError : @escaping (_ messageError : String) -> ()){
+        Ref.sharedInstance.fetchLatestMessage(withUID: uid).observe(.childChanged) { (dataSnapshot) in
+            guard let value = dataSnapshot.value as? [String : AnyObject] else {
+                print("Error_Firebase_Latest_Message : can't downcast dataSnapshot to Dictionanry ")
+                return
+            }
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                let message = try JSONDecoder().decode(Message.self, from: jsonData)
+                onSuccess(message)
+            }catch let error{
+                onError(error.localizedDescription)
+            }
         }
     }
 }

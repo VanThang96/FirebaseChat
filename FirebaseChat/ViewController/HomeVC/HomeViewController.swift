@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     
     var messageViewModel = MessageViewModel()
     let cellId = "cellId"
+    //    var userViewModel = UserViewModel()
     
     lazy var imvProfile : UIImageView = {
         let imvProfile = UIImageView(image: UIImage(named: "user_male"))
@@ -30,13 +31,21 @@ class HomeViewController: UIViewController {
         
         setupNavigationTitle()
         setupCollectionView()
-        
         observeMessage()
     }
     fileprivate func observeMessage(){
-        messageViewModel.fetchMessage {
-            DispatchQueue.main.async {[weak self] in
-                self?.collectionViewUsers.reloadData()
+        if let userData = UserDefaults.standard.data(forKey: "userInfo"), let user = try? PropertyListDecoder().decode(User.self, from: userData){
+            // add new status when user send first message
+            messageViewModel.fetchMessageWhenCreate(uid: user.uid!) {[weak self] in 
+                DispatchQueue.main.async {
+                    self?.collectionViewUsers.reloadData()
+                }
+            }
+            // update status when user change message
+            messageViewModel.fetchMessageWhenChange(uid: user.uid!) {[weak self] in
+                DispatchQueue.main.async {
+                    self?.collectionViewUsers.reloadData()
+                }
             }
         }
     }
@@ -45,6 +54,7 @@ class HomeViewController: UIViewController {
         navigationItem.leftBarButtonItem = leftImageItem
     }
     
+    // start homeVC when user did tap all user
     @IBAction func didTapAllUser(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let listAllUser = storyboard.instantiateViewController(withIdentifier: "ListUserViewController") as! ListUserViewController
@@ -59,10 +69,11 @@ class HomeViewController: UIViewController {
     fileprivate func setupCollectionView(){
         collectionViewUsers.register(UINib(nibName: String(describing: HomeCollectionViewCell.self), bundle: nil), forCellWithReuseIdentifier: cellId)
     }
-    func showChatViewController(with user : User){
+    func showChatViewController(fromUID : String,with user : User){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let chatVC = storyboard.instantiateViewController(withIdentifier: "ChatViewController") as! ChatViewController
         chatVC.userDestination = user
+        chatVC.fromUID = fromUID
         self.navigationController?.pushViewController(chatVC, animated: true)
     }
 }
@@ -74,9 +85,9 @@ extension HomeViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeCollectionViewCell
         cell.message = messageViewModel.getMessage(at: indexPath.item)
-        messageViewModel.fetchUserById(with: messageViewModel.getMessage(at: indexPath.item).toUID!, onCompletion: { (user) in
-            cell.user = user
-        })
+//        messageViewModel.fetchUserById(with: messageViewModel.getMessage(at: indexPath.item).toUID!, onCompletion: { (user) in
+//            cell.user = user
+//        })
         return cell
     }
 }
@@ -88,6 +99,8 @@ extension HomeViewController : UICollectionViewDelegate , UICollectionViewDelega
         return 10
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//       showChatViewController(at: indexPath.item)
+        //        if let userData = UserDefaults.standard.data(forKey: "userInfo"), let user = try? PropertyListDecoder().decode(User.self, from: userData){
+        //            showChatViewController(fromUID: user.uid! , with: self.userViewModel.getUser(at: indexPath.item))
+        //        }
     }
 }

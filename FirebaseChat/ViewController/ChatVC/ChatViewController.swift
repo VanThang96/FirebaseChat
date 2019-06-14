@@ -18,18 +18,26 @@ class ChatViewController: UIViewController {
     
     var userDestination : User!
     var fromUID : String!
+    var messageViewModel = MessageViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         setupUI()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidAppear(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
+        
+        messageViewModel.fetchAllMess(fromUID: fromUID, toUID: userDestination.uid!) {
+            for i in  self.messageViewModel.messages {
+                print("\(i.message)")
+            }
+        }
     }
     override func viewWillLayoutSubviews() {
         // setup txtChatbox
@@ -41,12 +49,13 @@ class ChatViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         NotificationCenter.default.removeObserver(self)
         txtChatBox.resignFirstResponder()
+        
     }
     @IBAction func didTapSendMessage(_ sender: Any) {
         if let userData = UserDefaults.standard.data(forKey: "userInfo"), let user = try? PropertyListDecoder().decode(User.self, from: userData){
             let uid = user.uid
             let timeStamp = Int(NSDate().timeIntervalSince1970)
-            DatabaseServices.shareInstance.sendMessageToFirebase(text: txtChatBox.text!, fromUID: uid!, toUID: userDestination.uid!, timeStamp: timeStamp, onSuccess: {[weak self] in
+            DatabaseServices.shareInstance.sendMessageToFirebaseUserMessage(text: txtChatBox.text!, fromUID: uid!, toUID: userDestination.uid!, timeStamp: timeStamp, onSuccess: {[weak self] in
                 print("success")
                 self?.txtChatBox.text = nil
                 self?.configurationButtonSend(false)
@@ -97,16 +106,13 @@ class ChatViewController: UIViewController {
 }
 extension ChatViewController : UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        if let userData = UserDefaults.standard.data(forKey: "userInfo"), let user = try? PropertyListDecoder().decode(User.self, from: userData){
-            let uid = user.uid
             let timeStamp = Int(NSDate().timeIntervalSince1970)
-            DatabaseServices.shareInstance.sendMessageToFirebase(text: txtChatBox.text!, fromUID: uid!, toUID: userDestination.uid!, timeStamp: timeStamp, onSuccess: {[weak self] in
+        DatabaseServices.shareInstance.sendMessageToFirebaseUserMessage(text: txtChatBox.text!, fromUID: fromUID, toUID: userDestination.uid!, timeStamp: timeStamp, onSuccess: {[weak self] in
                 print("success")
                 self?.txtChatBox.text = nil
                 self?.configurationButtonSend(false)
             }) { [weak self](error) in
                 self?.showAlertNotiCheckEmpty(noti: error)
-            }
         }
         return true
     }
