@@ -28,6 +28,7 @@ class ListUserViewController: UIViewController {
     fileprivate func loadAllUser(){
         userViewModel.fetchUsers {[weak self] in
             DispatchQueue.main.async {
+                print("we reload all users")
                 self?.collectionViewListUser.reloadData()
             }
         }
@@ -49,10 +50,10 @@ extension ListUserViewController : UICollectionViewDataSource {
 }
 extension ListUserViewController : UICollectionViewDelegate , UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 100)
+        return CGSize(width: view.frame.width, height: 80)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 0
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         dismiss(animated: true) {

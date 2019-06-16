@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class MessageViewModel {
     var messages = [Message]()
@@ -15,7 +16,7 @@ class MessageViewModel {
         return messages.count
     }
     func getMessage(at index : Int) -> Message{
-        return messages.sorted(by: {$0 > $1})[index]
+        return messages.sorted(by: {$0 < $1})[index]
     }
     func fetchAllMess(fromUID : String , toUID : String , onCompletion  : @escaping () -> ()){
         DatabaseServices.shareInstance.fetchMessage(fromUID: fromUID, toUID: toUID, onSucess: { [weak self](message) in
@@ -52,5 +53,11 @@ class MessageViewModel {
         }) { (error) in
             print(error)
         }
+    }
+    func estimateFrameForText(text : String) -> CGRect {
+        let size = CGSize(width: 250, height: 1000)
+        let option = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
+        let atributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 16)]
+        return NSString(string: text).boundingRect(with: size, options: option, attributes: atributes, context: nil)
     }
 }

@@ -23,7 +23,7 @@ class UserViewModel {
         return users.count
     }
     func getUser(at Index : Int) -> User {
-        return users[Index]
+       return users[Index]
     }
     func checkAvatarImage() -> String? {
         if userLocal.image == nil {
@@ -76,7 +76,9 @@ class UserViewModel {
     }
     func fetchUsers(onCompletion : @escaping () -> ()){
         DatabaseServices.shareInstance.fetchAllUsers(onSuccess: { [weak self](users) in
-            self?.users = users
+            if let userData = UserDefaults.standard.data(forKey: "userInfo"), let user = try? PropertyListDecoder().decode(User.self, from: userData){
+                 self?.users = users.filter({$0.uid != user.uid })
+            }
             onCompletion()
         }) { (error) in
             print(error)

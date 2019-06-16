@@ -140,7 +140,7 @@ class DatabaseServices {
             "message" : text,
             "timeStamp": timeStamp
             ] as [String : Any]
-        Ref.sharedInstance.databaseSpecificUserMessage(fromUID: fromUID, toUID: toUID).childByAutoId().updateChildValues(message) { (error, dataRef) in
+        Ref.sharedInstance.databaseSpecificUserMessage(fromUID: fromUID, toUID: toUID).childByAutoId().setValue(message) { (error, dataRef) in
             if error != nil {
                 onError((error?.localizedDescription)!)
                 return

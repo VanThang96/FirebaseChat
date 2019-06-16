@@ -10,7 +10,7 @@ import Foundation
 
 
 protocol Comp {
-    static func > (lhs : Self , rhs : Self) -> Bool
+    static func < (lhs : Self , rhs : Self) -> Bool
 }
 struct Message : Comp {
     var fromUID : String?
@@ -18,8 +18,8 @@ struct Message : Comp {
     var timeStamp : Int?
     var toUID  : String?
     
-    static func > (lhs: Message, rhs: Message) -> Bool {
-        return lhs.timeStamp! > rhs.timeStamp!
+    static func < (lhs: Message, rhs: Message) -> Bool {
+        return lhs.timeStamp! < rhs.timeStamp!
     }
 }
 extension Message : Decodable {

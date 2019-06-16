@@ -45,6 +45,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        imvAvatar.layer.borderColor = UIColor.gray.cgColor
+        imvAvatar.layer.borderWidth = 3
         imvAvatar.layer.cornerRadius = imvAvatar.frame.height / 2
         imvAvatar.backgroundColor = .gray
         imvAvatar.clipsToBounds = true
