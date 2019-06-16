@@ -64,7 +64,6 @@ class HomeViewController: UIViewController {
     }
     @objc func handleReloadCollectionView(){
         DispatchQueue.main.async {[weak self] in
-            print("we have reload data")
             self?.collectionViewUsers.reloadData()
         }
     }
@@ -92,9 +91,17 @@ extension HomeViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomeCollectionViewCell
         cell.message = messageViewModel.getMessage(at: indexPath.item)
-        messageViewModel.fetchUserById(with: messageViewModel.getMessage(at: indexPath.item).toUID!, onCompletion: { (user) in
-            cell.user = user
-        })
+        if let userData = UserDefaults.standard.data(forKey: "userInfo"), let user = try? PropertyListDecoder().decode(User.self, from: userData){
+            if messageViewModel.getMessage(at: indexPath.item).fromUID == user.uid {
+                messageViewModel.fetchUserById(with: messageViewModel.getMessage(at: indexPath.item).toUID!, onCompletion: {(userDestination) in
+                    cell.user = userDestination
+                })
+            } else {
+                messageViewModel.fetchUserById(with: messageViewModel.getMessage(at: indexPath.item).fromUID!, onCompletion: {(userDestination) in
+                     cell.user = userDestination
+                })
+            }
+        }
         return cell
     }
 }

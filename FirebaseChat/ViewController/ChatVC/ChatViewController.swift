@@ -40,13 +40,9 @@ class ChatViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillAppear(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidAppear(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
         
-        print("view will appear run")
         //load list message
-        print(userDestination)
-        print(fromUID)
         messageViewModel.fetchAllMess(fromUID: fromUID, toUID: userDestination.uid!) {
             self.collectionViewChat.layoutIfNeeded()
-            print("load chat")
             self.collectionViewChat.insertItems(at: [IndexPath(item: self.messageViewModel.getMessageCount() - 1, section: 0)])
         }
     }

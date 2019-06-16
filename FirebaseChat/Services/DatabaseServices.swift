@@ -176,7 +176,6 @@ class DatabaseServices {
             do {
                 let jsonData = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                 let message = try JSONDecoder().decode(Message.self, from: jsonData)
-                print(message)
                 onSuccess(message)
             }catch let error{
                 onError(error.localizedDescription)

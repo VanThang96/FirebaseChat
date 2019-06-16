@@ -28,7 +28,6 @@ class ListUserViewController: UIViewController {
     fileprivate func loadAllUser(){
         userViewModel.fetchUsers {[weak self] in
             DispatchQueue.main.async {
-                print("we reload all users")
                 self?.collectionViewListUser.reloadData()
             }
         }

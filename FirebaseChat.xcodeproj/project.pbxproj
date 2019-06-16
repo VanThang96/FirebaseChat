@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2309F2C422B4FCB20012E74C /* ChatMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309F2C322B4FCB20012E74C /* ChatMessageViewController.swift */; };
 		2309F2C622B50F550012E74C /* MessageSendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2309F2C522B50F550012E74C /* MessageSendCell.swift */; };
 		230E15BA22AF583B00FDE984 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 230E15B922AF583B00FDE984 /* HomeViewController.swift */; };
 		231BC58F22B238C400AC280E /* UserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 231BC58D22B238C400AC280E /* UserCollectionViewCell.swift */; };
@@ -39,7 +38,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2309F2C322B4FCB20012E74C /* ChatMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageViewController.swift; sourceTree = "<group>"; };
 		2309F2C522B50F550012E74C /* MessageSendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageSendCell.swift; sourceTree = "<group>"; };
 		230E15B922AF583B00FDE984 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		231BC58D22B238C400AC280E /* UserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -157,7 +155,6 @@
 				23BDEF9722AE329000F94D95 /* LoginAndSignupViewController.swift */,
 				23E7EEE822AE007800F39BE7 /* LoginViewController.swift */,
 				23BDEF9B22AE355600F94D95 /* SignupViewController.swift */,
-				2309F2C322B4FCB20012E74C /* ChatMessageViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -403,7 +400,6 @@
 				235C33B622B0F83C00D9336B /* ListUserViewController.swift in Sources */,
 				23BDEF9F22AE5C2900F94D95 /* Ref.swift in Sources */,
 				235C33B822B10F4300D9336B /* Message.swift in Sources */,
-				2309F2C422B4FCB20012E74C /* ChatMessageViewController.swift in Sources */,
 				23E7EEE922AE007800F39BE7 /* LoginViewController.swift in Sources */,
 				2309F2C622B50F550012E74C /* MessageSendCell.swift in Sources */,
 				23BDEFA722AE67F400F94D95 /* UserViewModel.swift in Sources */,

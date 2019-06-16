@@ -12,5 +12,4 @@ target 'FirebaseChat' do
     pod 'Firebase/Storage'
     pod 'SVProgressHUD'
     pod 'SDWebImage'
-    pod 'JSQMessagesViewController'
 end

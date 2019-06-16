@@ -27,7 +27,7 @@ class UserCollectionViewCell: UICollectionViewCell {
             DispatchQueue.main.async{[weak self] in
                 self?.lbUserName.text = self?.user?.userName
                 self?.lbUserEmail.text = self?.user?.emailAddress
-                self?.imvAvatar.sd_setImage(with: URL(string: (self?.user?.image)!), placeholderImage: nil, options: SDWebImageOptions.progressiveDownload) { [weak self](image, error, SDImageCache, url) in
+                self?.imvAvatar.sd_setImage(with: URL(string: (self?.user?.image)!), placeholderImage: nil, options: SDWebImageOptions.fromCacheOnly) { [weak self](image, error, SDImageCache, url) in
                     self?.indicator.removeFromSuperview()
                 }
             }
@@ -43,7 +43,7 @@ class UserCollectionViewCell: UICollectionViewCell {
         imvAvatar.backgroundColor = .gray
         imvAvatar.clipsToBounds = true
         
-        indicator.center = CGPoint(x: imvAvatar.center.x, y: imvAvatar.center.y - 35)
+        indicator.center = imvAvatar.center
         indicator.startAnimating()
         addSubview(indicator)
     }
