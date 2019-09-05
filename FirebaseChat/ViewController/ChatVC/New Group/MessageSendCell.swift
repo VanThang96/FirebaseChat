@@ -15,6 +15,7 @@ class MessageSendCell: UICollectionViewCell {
             textView.text = message?.message
         }
     }
+    
     lazy var textView : UITextView = {
        let tv = UITextView()
         tv.text = "text view buble"
@@ -24,6 +25,7 @@ class MessageSendCell: UICollectionViewCell {
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
+    
     lazy var bubleView : UIView = {
         let view = UIView()
         view.backgroundColor = .blue
@@ -54,6 +56,7 @@ class MessageSendCell: UICollectionViewCell {
         textView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         textView.heightAnchor.constraint(equalTo: self.heightAnchor).isActive = true
     }
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

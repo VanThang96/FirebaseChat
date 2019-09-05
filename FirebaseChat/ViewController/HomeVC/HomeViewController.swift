@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
     var timer : Timer?
     let cellId = "cellId"
     
-    //    var userViewModel = UserViewModel()
     
     lazy var imvProfile : UIImageView = {
         let imvProfile = UIImageView(image: UIImage(named: "user_male"))

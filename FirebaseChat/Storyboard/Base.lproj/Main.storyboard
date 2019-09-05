@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BOF-AJ-Oz4">
-    <device id="retina5_9" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BOF-AJ-Oz4">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="LoginAndSignupViewController" id="BYZ-38-t0r" customClass="LoginAndSignupViewController" customModule="FirebaseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="firebaseLogo" translatesAutoresizingMaskIntoConstraints="NO" id="wQX-WD-zfE">
-                                <rect key="frame" x="62.666666666666657" y="144" width="249.99999999999997" height="250"/>
+                                <rect key="frame" x="35" y="70" width="250" height="250"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wQX-WD-zfE" secondAttribute="height" multiplier="1:1" id="aSU-WX-OLY"/>
                                     <constraint firstAttribute="width" constant="250" id="djn-r0-xYP"/>
@@ -27,10 +27,10 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="7jq-QL-FeZ">
-                                <rect key="frame" x="30" y="532" width="315" height="116"/>
+                                <rect key="frame" x="30" y="458" width="260" height="116"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trC-K0-xdX" customClass="RoundedWhiteButton" customModule="FirebaseChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="J98-Rd-6CX"/>
@@ -44,7 +44,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UeI-6O-Oge" customClass="RoundedWhiteButton" customModule="FirebaseChat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="66" width="315" height="50"/>
+                                        <rect key="frame" x="0.0" y="66" width="260" height="50"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="3GR-QL-oTd"/>
@@ -59,7 +59,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHAT DEMO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0O-Gb-e9N">
-                                <rect key="frame" x="109.00000000000001" y="410" width="157.33333333333337" height="33.666666666666686"/>
+                                <rect key="frame" x="81.5" y="336" width="157.5" height="33.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -68,7 +68,7 @@
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="T0O-Gb-e9N" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Aib-e1-u68"/>
-                            <constraint firstItem="wQX-WD-zfE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="CEO-8c-RXi"/>
+                            <constraint firstItem="wQX-WD-zfE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="CEO-8c-RXi"/>
                             <constraint firstItem="7jq-QL-FeZ" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-60" id="M9W-DQ-UVs"/>
                             <constraint firstItem="T0O-Gb-e9N" firstAttribute="top" secondItem="wQX-WD-zfE" secondAttribute="bottom" constant="16" id="QaW-FK-RSR"/>
                             <constraint firstItem="wQX-WD-zfE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="drX-by-CAa"/>
@@ -91,20 +91,20 @@
             <objects>
                 <viewController id="370-uX-hCP" customClass="LoginViewController" customModule="FirebaseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cUn-SG-Mxi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LOGIN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ntb-bH-lLF">
-                                <rect key="frame" x="141" y="104" width="93.333333333333314" height="38.333333333333343"/>
+                                <rect key="frame" x="113.5" y="80" width="93.5" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="v8d-Wt-eun">
-                                <rect key="frame" x="30" y="188.33333333333334" width="315" height="116.00000000000003"/>
+                                <rect key="frame" x="30" y="164.5" width="260" height="116"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1De-w7-0Hd">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="oDO-dY-kOI"/>
                                         </constraints>
@@ -113,7 +113,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ghh-pz-91I">
-                                        <rect key="frame" x="0.0" y="66" width="315" height="50"/>
+                                        <rect key="frame" x="0.0" y="66" width="260" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="jSk-CH-LRP"/>
                                         </constraints>
@@ -124,7 +124,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="niq-zs-dau">
-                                <rect key="frame" x="30" y="712" width="315" height="50"/>
+                                <rect key="frame" x="30" y="502" width="260" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="O7D-Wy-qpm"/>
@@ -135,7 +135,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xRK-EP-Rtv">
-                                <rect key="frame" x="16" y="44" width="36" height="36"/>
+                                <rect key="frame" x="16" y="20" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="G3B-h9-Lte"/>
                                     <constraint firstAttribute="width" constant="36" id="gxz-tX-TQf"/>
@@ -177,11 +177,11 @@
             <objects>
                 <viewController id="Pot-Vh-rwS" customClass="SignupViewController" customModule="FirebaseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ezq-Ch-ixs">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YR9-he-E4G">
-                                <rect key="frame" x="30" y="712" width="315" height="50"/>
+                                <rect key="frame" x="30" y="502" width="260" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="xTM-zh-v9N"/>
@@ -192,16 +192,16 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SIGNUP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmX-Nw-dGg">
-                                <rect key="frame" x="130.33333333333334" y="104" width="114.33333333333334" height="38.333333333333343"/>
+                                <rect key="frame" x="103" y="80" width="114.5" height="38.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="svd-qk-PZU">
-                                <rect key="frame" x="30" y="280.33333333333331" width="315" height="182"/>
+                                <rect key="frame" x="30" y="256.5" width="260" height="182"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Md-ID-QF8">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="260" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="pa3-TX-D5W"/>
                                         </constraints>
@@ -210,7 +210,7 @@
                                         <textInputTraits key="textInputTraits" textContentType="name"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="EmailAddress" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h4c-96-UIB">
-                                        <rect key="frame" x="0.0" y="66" width="315" height="50"/>
+                                        <rect key="frame" x="0.0" y="66" width="260" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="zPq-WO-gz4"/>
                                         </constraints>
@@ -219,7 +219,7 @@
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="emJ-Z7-ZyV">
-                                        <rect key="frame" x="0.0" y="132" width="315" height="50"/>
+                                        <rect key="frame" x="0.0" y="132" width="260" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="aHR-VY-wnG"/>
                                         </constraints>
@@ -230,7 +230,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odg-JB-x5L">
-                                <rect key="frame" x="16" y="44" width="36" height="36"/>
+                                <rect key="frame" x="16" y="20" width="36" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="36" id="5hH-z8-MEe"/>
                                     <constraint firstAttribute="height" constant="36" id="MZa-Eg-eiZ"/>
@@ -241,7 +241,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1TA-WA-iCb">
-                                <rect key="frame" x="142.66666666666666" y="158.33333333333334" width="90" height="90"/>
+                                <rect key="frame" x="115" y="134.5" width="90" height="90"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="vDF-k3-DGO"/>
@@ -254,7 +254,7 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add  Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2i9-Cu-yS0">
-                                <rect key="frame" x="149.66666666666666" y="194.33333333333334" width="76" height="18"/>
+                                <rect key="frame" x="122" y="170.5" width="76" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -315,11 +315,11 @@
             <objects>
                 <viewController storyboardIdentifier="HomeViewController" modalTransitionStyle="crossDissolve" id="l1x-x5-Vk0" customClass="HomeViewController" customModule="FirebaseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3Gy-JY-Udv">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XLq-QT-Wc5">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="TiJ-WY-7R8">
                                     <size key="itemSize" width="50" height="50"/>
@@ -364,11 +364,11 @@
             <objects>
                 <viewController storyboardIdentifier="ChatViewController" id="F0r-bh-h7J" customClass="ChatViewController" customModule="FirebaseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ypi-xF-eaN">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="WME-Gi-UgT">
-                                <rect key="frame" x="0.0" y="44" width="375" height="678"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="dTu-c1-vUj">
                                     <size key="itemSize" width="50" height="50"/>
@@ -383,10 +383,10 @@
                                 </connections>
                             </collectionView>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B9m-YS-zno">
-                                <rect key="frame" x="0.0" y="722" width="375" height="56"/>
+                                <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hgv-S7-Mpv">
-                                        <rect key="frame" x="15" y="8" width="302" height="40"/>
+                                        <rect key="frame" x="15" y="8" width="247" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="KhK-Aa-ris"/>
                                         </constraints>
@@ -400,7 +400,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X2c-OD-T8n">
-                                        <rect key="frame" x="332" y="14" width="28" height="28"/>
+                                        <rect key="frame" x="277" y="14" width="28" height="28"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="28" id="Y1F-Ad-3fL"/>
                                             <constraint firstAttribute="width" secondItem="X2c-OD-T8n" secondAttribute="height" multiplier="1:1" id="oR6-yL-eZP"/>
@@ -451,11 +451,11 @@
             <objects>
                 <viewController storyboardIdentifier="ListUserViewController" id="Ie1-dY-Oca" customClass="ListUserViewController" customModule="FirebaseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SkP-tq-BdK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cb8-bn-001">
-                                <rect key="frame" x="16" y="44" width="48" height="40"/>
+                                <rect key="frame" x="16" y="20" width="48" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="bGD-HY-Rxk"/>
                                 </constraints>
@@ -465,7 +465,7 @@
                                 </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="777-tL-F7G">
-                                <rect key="frame" x="0.0" y="84" width="375" height="728"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="508"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zEh-Ld-0jS">
                                     <size key="itemSize" width="50" height="50"/>
@@ -506,7 +506,7 @@
             <objects>
                 <viewController storyboardIdentifier="ChatMessageViewController" id="a1U-QX-1qr" customClass="ChatMessageViewController" customModule="FirebaseChat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="h5I-9V-fjf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="VvU-6H-4VM"/>
@@ -522,7 +522,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qq7-h6-N2p" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wS7-BH-DK0">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -537,7 +537,7 @@
     </scenes>
     <resources>
         <image name="firebaseLogo" width="128" height="128"/>
-        <image name="icon_back" width="108" height="108"/>
+        <image name="icon_back" width="36" height="36"/>
         <image name="paper_plane" width="30" height="30"/>
         <image name="people" width="30" height="30"/>
     </resources>

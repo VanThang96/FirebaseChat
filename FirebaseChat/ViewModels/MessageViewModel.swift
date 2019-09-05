@@ -18,6 +18,7 @@ class MessageViewModel {
     func getMessage(at index : Int) -> Message{
         return messages.sorted(by: {$0 < $1})[index]
     }
+    
     func fetchAllMess(fromUID : String , toUID : String , onCompletion  : @escaping () -> ()){
         DatabaseServices.shareInstance.fetchMessage(fromUID: fromUID, toUID: toUID, onSucess: { [weak self](message) in
             self?.messages.append(message)
